@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <title>Challenge 1 - SpaceX Dashboard</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script>
+   zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+      ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
+  </script>
+</head>
+<body>
+  <div class="logo">
+    <img src="img/logo.png">
+  </div>
+  <div class="flex-grid">
+    <div class="een">
+      <h2>Merlin 1</h2>
+      <div id="brandstof"></div>
+      <script type="text/javascript">
+        var chartData1 = {
+            "type":"radar",
+          "plot":{
+              "aspect":"rose"
+          },
+          "scale-k":{
+              "labels":["Carbon fiber reinforced polymer","Composite","Ablation","340 kN Thrust","Turbopomp"],
+              "item":{
+                  "font-color":"#808080",
+                  "font-family":"Nunito",
+              },
+              "tick":{
+                  "line-color":"#808080",
+                  "line-width":3,
+                  "size":15,
+                  "placement":"outer"
+              },
+              "guide":{
+                  "line-color":"#808080",
+                  "line-width":1,
+                  "line-style":"solid",
+                  "background-color":"#f0f0f5 #e0e0eb"
+              }
+          },
+          "scale-v":{
+              "visible":false
+          },
+          "series":[
+              {
+                  "values":[59,30,65,34,40],
+                  "background-color":"#76C7EF #199CE6"
+              },
+              {
+                  "values":[76,60,11,21,99],
+                  "background-color":" #199CE6 #44CAE8"
+              }
+          ]
+         };
+          zingchart.render({ // Render Method[3]
+            id: 'brandstof',
+            data: chartData1,
+            height: 400,
+            width: '100%'
+          });
+      </script>
+    </div>
+
+    <div class="een">
+      <h2>Snelheid</h2>
+      <div id="snelheid"></div>
+      <script>
+        var chartData2 = {
+            graphset:[
+          {
+            type: "gauge",
+            x: 0,
+            y: 0,
+            height: "100%",
+            width: "75%",
+            scaleR:{
+             values: "0:10:1",
+              aperture: 320,
+              tick:{
+                visible: false
+              },
+              item:{
+                visible: false
+              },
+              ring:{
+                backgroundColor: "#f0f0f5 #e0e0eb",
+                size: 20
+              },
+              center:{
+                visible: false
+              }
+            },
+            scale:{
+              sizeFactor: 0.9
+            },
+            "scale-r-2":{
+              values: "0:100:10",
+              aperture: 290,
+              tick:{
+                lineWidth: 4,
+                size: 15,
+                lineColor: "#5F5F5F",
+                placement: "outter"
+              },
+              minorTicks: 4,
+              minorTick: {
+                lineColor: "#C1C1C1",
+                placement: "inner",
+                size: 7
+              },
+              ring:{
+                visible: false
+              },
+              item:{
+                offsetR: -1,
+                fontSize: 16,
+                fontFamily : 'Nunito',
+              },
+              center:{
+                size: 14,
+                backgroundColor: "#f0f0f5 #e0e0eb",
+                borderWidth: 1,
+                borderColor: "#5F5F5F"
+              },
+              label:{
+                text: "text"
+              }
+            },
+            "scale-2":{
+              sizeFactor: 0.55
+            },
+            plot:{
+              size: "56%",
+              csize: "14%",
+              tooltip:{
+                visible: false
+              }
+            },
+            plotarea:{
+              marginBottom: "20%"
+            },
+            series : [
+              {
+                values : [50],
+                backgroundColor: "#76C7EF #199CE6",
+                valueBox:{
+                  text: "%v",
+                  placement: "center",
+                  offsetY: 40,
+                  fontSize: 28,
+                  fontColor: "#515151",
+                  fontFamily : 'Nunito',
+                }
+                
+              }
+            ]
+          },
+          {
+            type:"bar",
+            x: "70%",
+            y: 0,
+            height: "100%",
+            width: "30%",
+            scaleY:{
+              lineColor: "none",
+              values: "0:100:10",
+              guide:{
+                visible: false
+              },
+              tick:{
+                margin: 3,
+                lineWidth: 4,
+                size: 15,
+                lineColor: "#5F5F5F",
+                placement: "outter",
+                rules:[
+                  {
+                    rule: "%i % 2 == 1",
+                    lineWidth: 2
+                  }
+                ]
+              },
+              minorTicks: 4,
+              minorTick: {
+                lineColor: "#C1C1C1",
+                placement: "inner",
+                size: 7
+              },
+              item:{
+                fontSize: 16,
+                fontFamily : 'Nunito',
+                rules:[
+                  {
+                    rule: "%i % 2 == 1",
+                    visible: false
+                  }
+                ]
+              }
+            },
+            "scale-y-2":{
+              values: "0:100:10",
+              lineColor: "none",
+              item:{
+                visible: false
+              },
+              guide:{
+                visible: false
+              },
+              tick:{
+                placement: "inner",
+                size: 40,
+                padding: 0,
+                margin: 0,
+                offsetX: 50,
+                lineColor: "#fff",
+                rules:[
+                  {
+                    rule: "%i == 0 || %i == 10",
+                    visible: false
+                  }
+                ]
+              }
+            },
+            plot:{
+              barsOverlap: "100%",
+              borderRadius: 2,
+              hoverState: {
+                visible: false
+              },
+              tooltip:{
+                visible: false
+              }
+            },
+            plotarea:{
+              marginBottom: "30%",
+              marginTop: "10%",
+              _marginRight: "35%"
+            },
+            scaleX:{
+              visible: false
+            },
+            series:[
+              {
+                values: [100],
+                backgroundColor: "#fff",
+                borderWidth: 4,
+                borderColor: "#f0f0f5",
+                maxTrackers: 0,
+                barWidth: "100%",
+                tooltip:{
+                  visble: false
+                }
+              },
+              {
+                values: [80],
+                backgroundColor: "#76C7EF #199CE6",
+                barWidth: "93%",
+                maxTrackers: 0,
+                tooltip:{
+                  visble: false
+                },
+                valueBox:{
+                  text: "%v",
+                  placement: "bottom-out",
+                  offsetY: 0,
+                  fontSize: 28,
+                  fontFamily : 'Nunito',
+                  fontColor: "#515151",
+                }
+              }
+            ]
+          }
+         ]
+         };
+          zingchart.render({ // Render Method[3]
+            id: 'snelheid',
+            data: chartData2,
+            height: 400,
+            width: '100%'
+          });
+      </script>
+    </div>
+
+    <div class="een">
+      <h2>Locatie</h2>
+      <div id="locatie"></div>
+      <script>
+        var chartData4 = {
+           type : 'radar',
+         plot : {
+          aspect : 'area',
+          animation: {
+            effect:3,
+            sequence:1,
+            speed:700
+          }
+         },
+         scaleV : {
+          visible : false
+         },
+         scaleK : {
+          values : '0:5:1',
+          labels : ['Mars','Venus','Earth','Jupiter', 'Uranus', 'Pluto' ],
+          item : {
+            fontColor : '#808080',
+            fontFamily : 'Nunito',
+            backgroundColor : "white",
+            padding : '5 10',
+          },
+          refLine : {
+            lineColor : '#c10000'
+          },
+          tick : {
+            lineColor : '#59869c',
+            lineWidth : 2,
+            lineStyle : 'dotted',
+            size : 20
+          },
+          guide : {
+            lineColor : "#607D8B",
+            lineStyle : 'solid',
+            backgroundColor : "#f0f0f5 #e0e0eb"
+          }
+         },
+         series : [
+          {
+            values : [59, 39, 38, 19, 21, 35],
+            backgroundColor : '#199CE6'
+          },
+          {
+            values : [20, 20, 54, 41, 41, 35],
+            lineColor : '#808080',
+            backgroundColor : '#76C7EF',
+          }
+         ]
+         };
+          zingchart.render({ // Render Method[3]
+            id: 'locatie',
+            data: chartData4,
+            height: 400,
+            width: '100%'
+          });
+      </script>
+    </div>
+  </div>
+
+  <div class="flex-grid-twee">
+    <div class="een">
+      <h2>Zwaartekracht</h2>
+      <div id="personeel"></div>
+      <script>
+                  var chartData5 = {
+         "type": "area",
+         "stacked": true,
+         "plotarea": {
+             "background-color": "#fff"
+         },
+         "scale-y": {
+             "line-color": "#333",
+             "tick": {
+                 "line-color": "#333",
+             },
+             "item": {
+                 "padding": "4px",
+                 "font-family":"Nunito"
+             }
+         },
+         "scale-x": {
+             "line-color": "#76C7EF",
+             "max-items": 6,
+             "min-value": 1274313600000,
+             "step": 600000,
+             "transform": {
+                 "type": "date",
+                 "all": "%D, %d %M<br>%h:%i %A",
+                 "item": {
+                     "visible": false
+                 }
+             },
+             "tick": {
+                 "line-color": "#333",
+             }
+         },
+         "series": [
+             {
+                 "values": [
+                     11,
+                     36,
+                     7,
+                     44,
+                     11,
+                     28,
+                     42,
+                     26,
+                     13,
+                     32,
+                     12,
+                     24,
+                     16,
+                     11,
+                     43,
+                     39,
+                 ],
+                 "background-color": "#199CE6 #76C7EF",
+                 "line-color": "#76C7EF",
+                 "marker": {
+                     "background-color": "#76C7EF #199CE6",
+                     "border-color": "#fff",
+                     "border-width": "2px"
+                 }
+             },
+             {
+                 "values": [
+                     21,
+                     29,
+                     14,
+                     16,
+                     28,
+                     35,
+                     21,
+                     18,
+                     11,
+                     7,
+                     4,
+                     9,
+                     25,
+                     15,
+                     33,
+                     13
+                 ],
+                 "background-color": "#199CE6 #76C7EF",
+                 "line-color": "#199CE6",
+                 "marker": {
+                     "background-color": "#199CE6 #76C7EF",
+                     "border-color": "#fff",
+                     "border-width": "2px"
+                 }
+             }
+         ]
+      };
+          zingchart.render({ // Render Method[3]
+            id: 'personeel',
+            data: chartData5,
+            height: 400,
+            width: '100%'
+          });
+      </script>
+    </div>
+
+    <div class="een">
+      <h2>Voedingsmiddelen</h2>
+      <div id="voedingsmiddelen"></div>
+      <script>
+        var chartData3 = {
+         "type":"ring3d",
+         "series":[
+          {
+          "values":[59],
+          "background-color":"#199CE6 #76C7EF",
+          "text":"Fruit",
+         },
+          {"values":[55],
+         "background-color":"#199CE6 #76C7EF",
+         "text":"Brood",},
+          {"values":[30],
+         "background-color":"#199CE6 #76C7EF",
+         "text":"Chocolade",},
+          {"values":[28],
+         "background-color":"#199CE6 #76C7EF",
+         "text":"Vlees"},
+          {"values":[15],
+         "background-color":"#199CE6 #76C7EF",
+         "text":"Vis"}
+         ]
+         };
+          zingchart.render({ // Render Method[3]
+            id: 'voedingsmiddelen',
+            data: chartData3,
+            height: 400,
+            width: '100%'
+          });
+      </script>
+    </div>
+  </div>
+</body>
+</html>

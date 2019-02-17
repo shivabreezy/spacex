@@ -1,0 +1,77 @@
+body {
+	padding: 0;
+	background-color: #F4F7FC;
+}
+.een {
+	background-color: #FFF;
+	font-family: 'Nunito', sans-serif;
+	color: #808080;
+	padding: 40px;
+	margin: 30px;
+	height: 100%;
+	border-radius: 50px;
+	border-style: solid;
+	border-color: #eeee;
+	-webkit-box-shadow: 1px 59px 101px -35px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 1px 59px 101px -35px rgba(0, 0, 0, 0.35);
+	box-shadow: 1px 59px 101px -35px rgba(0, 0, 0, 0.35);
+}
+.logo {
+	text-align: center;
+	padding: 50px;
+}
+.logo img {
+	width: 300px;
+}
+.flex-grid, .flex-grid-twee {
+	display: flex;
+	flex-flow: column;
+}
+@media screen and (min-width: 768px) {
+	.flex-grid {
+		display: flex;
+		flex-flow: row;
+	}
+	.flex-grid .een {
+		flex: 1;
+	}
+	.flex-grid-twee {
+		display: flex;
+		flex-flow: row;
+	}
+	.flex-grid-twee .een {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.flex-grid {
+		display: flex;
+		flex-flow: row;
+	}
+	.flex-grid .een {
+		flex: 1;
+	}
+	.flex-grid-twee {
+		display: flex;
+		flex-flow: row;
+	}
+	.flex-grid-twee .een {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 1366px) {
+	.flex-grid {
+		display: flex;
+		flex-flow: row;
+	}
+	.flex-grid .een {
+		flex: 1;
+	}
+	.flex-grid-twee {
+		display: flex;
+		flex-flow: row;
+	}
+	.flex-grid-twee .een {
+		width: 100%;
+	}
+}
